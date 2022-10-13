@@ -1,0 +1,140 @@
+{
+   "About": {
+      "message": "关于"
+   },
+   "General": {
+      "message": "常规"
+   },
+   "Help": {
+      "message": "帮助"
+   },
+   "Options": {
+      "message": "选项"
+   },
+   "Rules": {
+      "message": "规则"
+   },
+   "advanced_settings": {
+      "message": "高级设置"
+   },
+   "appDesc": {
+      "message": "为Google Chrome 浏览器设置代理"
+   },
+   "appName": {
+      "message": "代理助手"
+   },
+   "authentication": {
+      "message": "认证设置"
+   },
+   "auto_detect_set": {
+      "message": "自动检测"
+   },
+   "bypass_list": {
+      "message": "BYPASS列表"
+   },
+   "cancel": {
+      "message": "取消"
+   },
+   "config_auto": {
+      "message": "自动设置代理"
+   },
+   "config_bypasslist": {
+      "message": "设置代理白名单"
+   },
+   "config_manual": {
+      "message": "手动设置代理"
+   },
+   "direct_proxy": {
+      "message": "直接连接"
+   },
+   "domain_in_bypasslist": {
+      "message": "在白名单里的域名将不使用代理"
+   },
+   "download": {
+      "message": "下载"
+   },
+   "edit": {
+      "message": "编辑"
+   },
+   "edit_pac_data": {
+      "message": "编辑PAC脚本"
+   },
+   "http_proxy": {
+      "message": "HTTP 代理:"
+   },
+   "http_proxy_set": {
+      "message": "HTTP代理"
+   },
+   "https_proxy": {
+      "message": "HTTPS代理:"
+   },
+   "https_proxy_set": {
+      "message": "HTTPS代理"
+   },
+   "online_pac_script": {
+      "message": "使用在线PAC脚本"
+   },
+   "pac_path": {
+      "message": "PAC文件路径:"
+   },
+   "pac_script": {
+      "message": "Pac 脚本"
+   },
+   "pac_script_set": {
+      "message": "PAC代理"
+   },
+   "pac_url": {
+      "message": "在线PAC网址"
+   },
+   "pass": {
+      "message": "密码:"
+   },
+   "password_authentication": {
+      "message": "使用密码认证"
+   },
+   "port": {
+      "message": "端口:"
+   },
+   "proxy": {
+      "message": "代理"
+   },
+   "proxy_helper_options": {
+      "message": "代理助手选项"
+   },
+   "proxy_information": {
+      "message": "浏览器代理设置"
+   },
+   "proxy_rules": {
+      "message": "PROXY规则:"
+   },
+   "proxy_servers": {
+      "message": "代理服务器"
+   },
+   "return": {
+      "message": "返回"
+   },
+   "save": {
+      "message": "保存"
+   },
+   "show_adv": {
+      "message": "显示高级设置"
+   },
+   "socks_proxy": {
+      "message": "SOCKS代理:"
+   },
+   "socks_proxy_set": {
+      "message": "SOCKS代理"
+   },
+   "system_proxy": {
+      "message": "系统代理"
+   },
+   "title": {
+      "message": "代理助手"
+   },
+   "use_predefine_list": {
+      "message": "使用内置白名单"
+   },
+   "user": {
+      "message": "用户:"
+   }
+}

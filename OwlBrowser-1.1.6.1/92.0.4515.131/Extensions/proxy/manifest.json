@@ -1,0 +1,33 @@
+{
+   "background": {
+      "scripts": [ "background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "images/off.png",
+      "default_popup": "popup.html",
+      "default_title": "Proxy"
+   },
+   "commands": {
+      "open-option": {
+         "description": "Open option page",
+         "suggested_key": {
+            "default": "Alt+O"
+         }
+      }
+   },
+   "default_locale": "en",
+   "description": "Proxy",
+   "icons": {
+      "128": "images/on.png",
+      "16": "images/on16.png",
+      "48": "images/on48.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDAnmrjVYNReTy6HRxdm2p9z/Ah/r83lnu4zK9Uff83v2ypn7pz+O/IjvB3DEZ1BUby+YAV4rAcFXe0DV/JTDivH6nOaqcX6OilM1vXP6/2cLQl5sU5wJ2buh/4A4Vz5AS+jrvkeC9DBy+YHVrEeyezvzXEYDnUXVED8Z1vkmdmgwIDAQAB",
+   "manifest_version": 2,
+   "minimum_chrome_version": "22.0.0",
+   "name": "owlplugin-Proxy",
+   "options_page": "options.html",
+   "permissions": [ "proxy", "tabs", "unlimitedStorage", "storage", "\u003Call_urls>", "webRequest", "webRequestBlocking" ],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "1.2.7"
+}

@@ -1,0 +1,6 @@
+openpyxl==2.6.2
+pywin32==224
+requests==2.25.1
+selenium==3.141.0
+win32gui==221.6
+xlrd==1.1.0

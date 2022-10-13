@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+  	html,body{width:100%;height:100%;margin:0;}
+	header h3{width: 100%; text-align: center;}
+	table {background: #0099ff; width: 100%;border:0; word-break: break-all;}
+	table td ,table th {background: #ffffff; padding: 2px 4px;}
+	h4{color: #ffffff; background: #0099ff; padding: 5px;}
+	p {padding: 10px;}
+	.td1{width: 20%;}
+	.th1{width: 5%;}
+	.th2{width: 15%;}
+	.th3{width: 15%;}
+	.th4{width: 8%;}
+	.th5{width: 30%;}
+	.th6{width: auto;}
+	span.pri{color: #006600;}
+	span.pub{color: #0000ff;}
+	span.cfg{color: #ff0000;}
+	span.param{color: #ff0000;}
+	span.value{color: #009900;}
+  </style>
+ </head>
+ <body>
+  <header>
+	<h3>猫头鹰浏览器 使用说明</h3>
+	<table cellpadding="0" cellspacing="1">
+		<tr>
+			<td class="td1">产品名称：</td>
+			<td>猫头鹰浏览器（英文名称：OwlBrowser）</td>
+		</tr>
+		<tr>
+			<td>官方网址：</td>
+			<td>https://www.owlssky.com</td>
+		</tr>
+		<tr>
+			<td>官方Q群：</td>
+			<td>23210328</td>
+		</tr>
+		<tr>
+			<td>最新版本：</td>
+			<td>1.1.0.1</td>
+		</tr>
+		<tr>
+			<td>产品介绍：</td>
+			<td>猫头鹰浏览器是嘉禾信息科技基于chromuim 83.0.4103.61版本开发编译的浏览器产品，支持修改canvas、webgl、webAudio、font等指纹，还有其他更多的功能，给您的每个账号创建专属浏览器吧。<br>
+			！！！！指纹、属性 都是浏览器核心底层接口修改返回，并非普通的JS层Hook修改！！！！
+			</td>
+		</tr>
+	</table>
+  </header>
+  <div class="">
+	<h4>【使用说明】</h4>
+	<p>
+		首次使用，请双击“OwlBrowser.exe”运行授权端，注册账号、登录。
+		<ol>
+			<li>注册账号、登录授权端</li>
+			<li>充值余额</li>
+			<li>更新服务状态</li>
+			<li>双击“chrome.exe”即可运行浏览器了</li>
+		</ol>
+		<ul>
+			<li>在授权端上点击“导出到授权文件”，会导出个“chromesq.dll”文件，在其他电脑上使用时，可以直接将此文件放到目录“83.0.4103.61”下，即可使用，免去登录授权端的麻烦，当然也可以选择登录授权端方式，登录之后，就可以使用了，前提是账户有余额。<br><br></li>
+			<li> 如果想把授权给到别人用，但又不想授权文件被随意传播，可以调用 browserleg.dll 进行把授权码加密，通过启动参数方式传递给浏览器，来启动浏览器，直接将加密接口返回的参数加入到启动浏览器的启动命令行里即可。<br><br>【browserleg.dll】公开接口为:
+				<ul>
+					<li>方法名：owlbrowser_security_leg</li>
+					<li>参数一：owl授权码  string类型，入参</li>
+					<li>参数二：数据地址   int类型   ，出参，传址</li>
+					<li>参数三：数据长度   int类型   ，出参，传址</li>
+					<li>返回值类型：boolean，true成功，false失败</li>
+				</ul>
+			</li>
+		</ul>
+	</p>
+	<h4>【扣费说明】</h4>
+	<p>
+		猫头鹰浏览器扣费方式为，每台设备每天0.2元，每天只在首次使用时记录扣费，之后再次使用，不再重复扣费。设备多、或者用户量大的可以向我们申请折扣，我们审核后会根据实际情况进行调整。
+		<br><br>
+		注：授权码、授权文件是用于使用扣费的标识码，非常重要，请保存好，不要随意泄露给别人，否则别人拿到您的授权码后也可以正常使用，且是从您的账户中扣费的，如果出现了这种情况，请及时联系官方客服处理。
+	</p>
+
+	<h4>【启动参数】</h4>
+	<p>
+		<p><font color="red">这里只列出了猫头鹰浏览器特有的启动参数，chromium/chrome的一些公共通用参数不在这里列出。</font></p>
+		<table cellpadding="0" cellspacing="1">
+			<tr>
+				<th class="th1">序号</th>
+				<th class="th2">参数中文名称</th>
+				<th class="th3">参数命令行名称</th>
+				<th class="th4">参数类型</th>
+				<th class="th5">示例</th>
+				<th class="th6">参数备注</th>
+			</tr>
+			<tr>
+				<td colspan="6"><b>独立参数：</b>指单独的命令行参数，<b>公共参数：</b>指共用一个命令行数：--browser-common-param</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>指纹因子</td>
+				<td>browser-rand-hash</td>
+				<td><span class="pri">独立参数</span></td>
+				<td>--browser-rand-hash=123</td>
+				<td>
+					--browser-rand-hash=[数字]，[数字] 自己替换，取值范围建议是：[1~99999999]，最多支持8位以下数字。
+					<br>canvas、webgl、webaudio、字体指纹都包含在这个参数里，--browser-rand-hash= 这个参数的值不变指纹就不变，这个值改变，指纹就改变。
+					<br>如果不设置这个参数，，每次打开浏览器会自己变，注意，刷新页面是不会变的，不要搞混了。
+				</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>禁用超链接新窗口打开</td>
+				<td>disabled-target-blank</td>
+				<td><span class="pri">独立参数</span></td>
+				<td>--disabled-target-blank</td>
+				<td>禁用 A 标签元素的target="_blank"打开新窗口功能，设置后，点击只会在当前窗口打开链接。</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>插件</td>
+				<td>plugins</td>
+				<td><span class="pri">独立参数</span></td>
+				<td>--plugins="plugName=p1&plugDesc=p2&plugPath=p3&mimeType=p4&mimeExt=p5&mimeDesc=p2&,plugName=n1&plugDesc=n2&plugPath=n3&mimeType=n4&mimeExt=n5&mimeDesc=n2&,"</td>
+				<td>对应 navigator.plugins，多个插件信息之间用英文逗号分隔。<br>
+					<div>Plugin</div>
+					<ul>
+						<li>plugName -> name</li>						
+						<li>plugPath -> filename</li>
+						<li>plugDesc -> description</li>
+					</ul>
+					<div>MimeType</div>
+					<ul>
+						<li>mimeType -> type</li>
+						<li>mimeExt -> suffixes</li>
+						<li>mimeDesc -> description</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>CPU线程数</td>
+				<td>hardwareConcurrency</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="hardwareConcurrency=8&"</td>
+				<td>对应navigator.hardwareConcurrency。数字[8]自己替换即可。</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>内存大小(单位：GB)</td>
+				<td>deviceMemory</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="deviceMemory=8&"</td>				
+				<td>对应navigator.deviceMemory。数字[8]自己替换即可。</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>平台名称</td>
+				<td>platform</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="platform=Win32&"</td>
+				<td>平台可选值大致有：Win32、Win64、Linux armv8l、MacIntel、Android等。</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>颜色深度</td>
+				<td>colorDepth</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="colorDepth=24&"</td>
+				<td>颜色深度一般都是24，可选值有16、24、32、48</td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>像素深度</td>
+				<td>pixelDepth</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="pixelDepth=24&"</td>
+				<td>像素深度如果不设置，那么是默认跟随颜色深度。</td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>屏幕分辨率宽</td>
+				<td>screenWidth</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="screenWidth=1920&"</td>
+				<td>对应 screen.width</td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>屏幕分辨率高</td>
+				<td>screenHeight</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="screenHeight=1080&"</td>
+				<td>对应 screen.height</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>系统名称</td>
+				<td>systemName</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="systemName=Window NT&"</td>
+				<td>Window系统上，此参数一般不需要修改</td>
+			</tr>
+			<tr>
+				<td>12</td>
+				<td>系统架构</td>
+				<td>systemArchitecture</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="systemArchitecture=x86&"</td>
+				<td>参考值有：x86、x86_64、arm64、ia64。</td>
+			</tr>
+			<tr>
+				<td>13</td>
+				<td>CPU模块名称</td>
+				<td>cpuModelName</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="cpuModelName=&"</td>
+				<td>用途暂未知，一般不需要修改。</td>
+			</tr>
+			<tr>
+				<td>14</td>
+				<td>硬件制造商</td>
+				<td>hardwareManufacturer</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="hardwareManufacturer=&"</td>
+				<td>用途暂未知，一般不需要修改。</td>
+			</tr>
+			<tr>
+				<td>15</td>
+				<td>硬件型号</td>
+				<td>hardwareModel</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="hardwareModel=&"</td>
+				<td>用途暂未知，一般不需要修改。</td>
+			</tr>
+			<tr>
+				<td>16</td>
+				<td>硬件序列号</td>
+				<td>hardwareSerialNumber</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="hardwareSerialNumber=&"</td>
+				<td>用途暂未知，一般不需要修改。</td>
+			</tr>
+			<tr>
+				<td>17</td>
+				<td>浏览器版本号</td>
+				<td>browserVersion</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="browserVersion=81.0.4109.36&"</td>
+				<td>与UA中的版本号互不影响，在chrome://version中可以查看到。</td>
+			</tr>
+			<tr>
+				<td>18</td>
+				<td>系统类型</td>
+				<td>osType</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="osType=Window&"</td>
+				<td>参考值有：Window、iOS、Mac OS X、Chrome OS、Chromium OS、Android、Linux、FreeBSD、OpenBSD、Solaris、Unknown。Windows系统上请勿随机修改。</td>
+			</tr>
+			<tr>
+				<td>19</td>
+				<td>外网IP地址</td>
+				<td>ipAddress</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="ipAddress=11.23.36.125:6699&"</td>
+				<td>如果使用了代理情况时，请设置此外网IP与代理IP一致，否则就不需要填写此参数。</td>
+			</tr>
+			<tr>
+				<td>20</td>
+				<td>内网IP地址</td>
+				<td>localIp</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="ipAddress=192.168.1.6:6699&"</td>
+				<td>虽然有此参数，但建议内网IP地址最好不要填写。</td>
+			</tr>
+			<tr>
+				<td>21</td>
+				<td>显卡型号</td>
+				<td>gpuRenderer</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="gpuRenderer=NVIDIA GeForce GTX 1050 Ti Direct3D11 vs_5_0 ps_5_0&"</td>
+				<td>js通过WebGL可以获取到的显卡信息，可以通过此参数修改。</td>
+			</tr>
+			<tr>
+				<td>22</td>
+				<td>显卡供应商</td>
+				<td>gpuVendor</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="gpuVendor=Google Inc.&"</td>
+				<td>js通过WebGL可以获取到的显卡供应商，可以通过此参数修改。<br>
+					注：如果是window平台的chrome系列浏览器都是“Google Inc.”，请不要乱改，手机端的按照实际情况修改。
+				</td>
+			</tr>
+			<tr>
+				<td>23</td>
+				<td>禁用网页图片</td>
+				<td>disabledImage</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="disabledImage=1&"</td>
+				<td>禁用网页上image元素的图片加载，可加快网页首次加载的速度。<br>注：通过css设置的背景图片无法禁用，不过可以使用url黑名单进行拦截。</td>
+			</tr>
+			<tr>
+				<td>24</td>
+				<td>禁用提示小窗口</td>
+				<td>hideSmallWindow</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="hideSmallWindow=1&"</td>
+				<td>比如：提示翻译、提示保存密码、提示获取地理位置等小窗口，禁用后，直接不会显示出来。</td>
+			</tr>
+			<tr>
+				<td>25</td>
+				<td>隐藏地址栏</td>
+				<td>hideLocationbar</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="hideLocationbar=1&"</td>
+				<td>设置后，浏览器的URL地址栏则不可见状态，一般不用设置，特殊情况用。</td>
+			</tr>
+			<tr>
+				<td>26</td>
+				<td>最大触摸点数</td>
+				<td>maxTouchPoints</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="maxTouchPoints=5&"</td>
+				<td>对应：navigator.maxTouchPoints。模拟手机端浏览器时需要设置，Windows平台(PC端)时请不要设置。</td>
+			</tr>
+			<tr>
+				<td>27</td>
+				<td>地理位置</td>
+				<td>geolocation</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="geolocation=113.5532,56.3361,1180.50,15,0,0&"</td>
+				<td>经度、纬度、海拔等，geolocation=no 时，代表拒绝网站获取地理位置，否则为允许获取。
+					<br>格式解释：第1项至第7项分别为：经度、纬度、海拔、经纬度精度、海拔精度、角度、风速，一般只要填写前3项即可，每项以英文逗号分隔。</td>
+			</tr>
+			<tr>
+				<td>28</td>
+				<td>url黑名单</td>
+				<td>url_blacklist</td>
+				<td><span class="cfg">配置文件</span></td>
+				<td>[缓存目录]\obconfig\urls\url_blacklist.txt</td>
+				<td>url黑名单设置，可以阻止黑名单中的url请求，在浏览器的缓存目录下设置，“[缓存目录]\obconfig\urls\url_blacklist.txt”，[缓存目录]实际的缓存目录路径请自行替换，具体配置请查看里面的此文件，有配置说明。</td>
+			</tr>
+			<tr>
+				<td>29</td>
+				<td>url自定义请求头</td>
+				<td>url_extra_request_header</td>
+				<td><span class="cfg">配置文件</span></td>
+				<td>[缓存目录]\obconfig\urls\url_extra_request_header.txt</td>
+				<td>url添加自定义请求头，在浏览器的缓存目录下设置，“[缓存目录]\obconfig\urls\url_extra_request_header.txt”，[缓存目录]实际的缓存目录路径请自行替换，具体配置请查看里面的此文件，有配置说明。</td>
+			</tr>
+			<tr>
+				<td>30</td>
+				<td>url替换</td>
+				<td>url_replace</td>
+				<td><span class="cfg">配置文件</span></td>
+				<td>[缓存目录]\obconfig\urls\url_replace.txt</td>
+				<td>可以将请求的URL替换为别的URL，在浏览器的缓存目录下设置，“[缓存目录]\obconfig\urls\url_replace.txt”，[缓存目录]实际的缓存目录路径请自行替换，具体配置请查看里面的此文件，有配置说明。</td>
+			</tr>
+			<tr>
+				<td>31</td>
+				<td>自定义js脚本</td>
+				<td>script</td>
+				<td><span class="cfg">配置文件</span></td>
+				<td>[缓存目录]\obconfig\script\documentstart.js</td>
+				<td>页面加载前执行自定义js脚本，如果不懂JS脚本，请不要随意配置。脚本按照要求写在这个js文件里即可，页面在加载时就会自动执行这段脚本，需要懂点js编程基础。</td>
+			</tr>
+			<tr>
+				<td>32</td>
+				<td>语言环境</td>
+				<td>languages</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="languages=zh-CN,en-US&"</td>
+				<td>对应：navigator.languages，支持多个语言，以英文逗号分隔，第1个语言会被设置为浏览器的界面语言。</td>
+			</tr>
+			<tr>
+				<td>33</td>
+				<td>时区</td>
+				<td>timezone</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="timezone=Europe/Berlin&"</td>
+				<td>修改浏览器上的时区，"Europe/Berlin" 为标准时区名称，不能随便填写，否则会不生效。</td>
+			</tr>
+			<tr>
+				<td>34</td>
+				<td>产品版本号</td>
+				<td>productSub</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>-browser-common-param="productSub=20030107&"</td>
+				<td>对应：navigator.productSub。Window平台的chrome浏览器都是“20030107”，一般不需要更改，否则可能适得其反。模拟手机浏览器时请按照实际情况修改。</td>
+			</tr>
+			<tr>
+				<td>35</td>
+				<td>浏览器供应商</td>
+				<td>vendor</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="vendor=Google Inc.&"，</td>
+				<td>对应：navigator.vendor。Window平台的chrome浏览器都是“Google Inc.”，一般不需要更改，否则可能适得其反。模拟手机浏览器时请按照实际情况修改。</td>
+			</tr>
+			<tr>
+				<td>36</td>
+				<td>浏览器供应商版本号</td>
+				<td>vendorSub</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="vendorSub=&"</td>
+				<td>对应：navigator.vendorSub。Window平台的chrome浏览器都是空""，一般不需要更改，否则可能适得其反。</td>
+			</tr>
+			<tr>
+				<td>37</td>
+				<td>勿跟踪</td>
+				<td>dnt</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="dnt=1&"</td>
+				<td>这个参数设置后，就会在请求头加上标识，告诉网站不要收集用户数据进行跟踪（君子协议），一般可以不用设置。</td>
+			</tr>
+			<tr>
+				<td>38</td>
+				<td>禁用webRTC</td>
+				<td>disableWebRtc</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="disableWebRtc=1&"</td>
+				<td>这个参数设置后，WebRTC功能就会被禁用掉。部分网站禁用的话可能起反效果，请自行考虑。</td>
+			</tr>
+			<tr>
+				<td>39</td>
+				<td>不修改Canvas指纹</td>
+				<td>filterCanvas</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="filterCanvas=1&"</td>
+				<td>默认是会修改Canvas指纹，设置后，则不修改Canvas指纹。</td>
+			</tr>
+			<tr>
+				<td>40</td>
+				<td>不修改Webgl指纹</td>
+				<td>filterWebgl</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="filterWebgl=1&"</td>
+				<td>默认是会修改Webgl指纹，设置后，则不修改Webgl指纹。</td>
+			</tr>
+			<tr>
+				<td>41</td>
+				<td>不修改Audio指纹</td>
+				<td>filterAudio</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="filterAudio=1&"</td>
+				<td>默认是会修改Audio指纹，设置后，则不修改Audio指纹。</td>
+			</tr>
+			<tr>
+				<td>42</td>
+				<td>不修改Font指纹</td>
+				<td>filterFont</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="filterFont=1&"</td>
+				<td>默认是会修改Font指纹，设置后，则不修改Font指纹。</td>
+			</tr>
+			<tr>
+				<td>43</td>
+				<td>不修改Rect指纹</td>
+				<td>filterRect</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="filterRect=1&"</td>
+				<td>默认是会修改Rect指纹，设置后，则不修改Rect指纹。</td>
+			</tr>
+			<tr>
+				<td>44</td>
+				<td>自定义字体</td>
+				<td>font</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="font=TWljcm9zb2Z0IFlhSGVpIFVJO0NhbGlicmk7Q2FsaWJyaSBMaWdodDtDYW1icmlh&"</td>
+				<td>多个字体间以英文分号分隔，然后base64编码即可，例如：“Microsoft YaHei UI;Calibri;Calibri Light;Cambria”，然后base64编码：“TWljcm9zb2Z0IFlhSGVpIFVJO0NhbGlicmk7Q2FsaWJyaSBMaWdodDtDYW1icmlh”。</td>
+			</tr>
+			<tr>
+				<td>45</td>
+				<td>电池电量</td>
+				<td>batteryLevel</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="batteryLevel=0.95&"</td>
+				<td>模拟手机浏览器时，可以设置电池剩余电量，0.95代表剩余95%的电量，1则代表100%的电量，请注意值的范围：0.01 ~ 1。</td>
+			</tr>
+			<tr>
+				<td>46</td>
+				<td>电池是否充电</td>
+				<td>batteryCharging</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="batteryCharging=1&"</td>
+				<td>模拟手机浏览器时，可以设置电池是否充电状态，默认是非充电状态，设置后则为充电状态。</td>
+			</tr>
+			<tr>
+				<td>47</td>
+				<td>地址栏名称</td>
+				<td>abname</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="abname=5Lqa6ams6YCK5oyH57q5546v5aKDMQ==&"</td>
+				<td>地址栏名称，即在浏览器地址栏最左侧显示指定的名称，以base64编码传入，例如：“亚马逊指纹环境1” 编码后为“5Lqa6ams6YCK5oyH57q5546v5aKDMQ==”。
+					<br>可以自定义为任何有意义的名称，可用于区分环境用途。
+				</td>
+			</tr>
+			<tr>
+				<td>48</td>
+				<td>业务编码</td>
+				<td>ctname</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="ctname=abc9962&"</td>
+				<td>使用英文+数字组合，不要用中文，如果 业务编码 + 指纹因子（--browser-rand-hash）相同，则跨设备生成的指纹项也相同（需要配合猫头鹰填表模块、猫头鹰防关联等外部工具），请尽量保证此业务编码与其他任何人不冲突，即唯一，长度不超过30字符。</td>
+			</tr>
+			<tr>
+				<td>49</td>
+				<td>SSL加密套件</td>
+				<td>cipherSutes</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="cipherSutes=TLS_AES_128_GCM_SHA256;TLS_AES_256_GCM_SHA384&"</td>
+				<td>例子只列举了两个而已，实际可能需要根据站点来设置，多个之间以英文分号(;)分隔，一般不需要自定义，如果不懂就请不要设置，否则会导致无法访问网页。</td>
+			</tr>
+			<tr>
+				<td>50</td>
+				<td>端口扫描保护</td>
+				<td>protectPorts</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="protectPorts=all&"</td>
+				<td>网页上端口扫描保护，可以传入指定的端口号，多个之间以英文逗号分隔，例如：3389,63333。值为 all 代表保护全部端口。</td>
+			</tr>
+			<tr>
+				<td>51</td>
+				<td>计算机MAC地址</td>
+				<td>macAddress</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="macAddress=2F:23:DA:7C:66:9A&"</td>
+				<td>mac地址格式一定要正确，请不要乱填写。</td>
+			</tr>
+			<tr>
+				<td>52</td>
+				<td>计算机名称</td>
+				<td>computerName</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="computerName=LP-CCHS2020&"</td>
+				<td>计算机名称，请不要包含中文、标点符号等。</td>
+			</tr>
+			<tr>
+				<td>53</td>
+				<td>系统用户名</td>
+				<td>userName</td>
+				<td><span class="pub">公共参数</span></td>
+				<td>--browser-common-param="userName=Administrator&"</td>
+				<td>当前登录系统的用户名。</td>
+			</tr>
+		</table>
+	</p>
+  </div>
+  <footer>
+	<h4>【启动参数示例】</h4>
+	<p>
+		"E:\OwlBrowser-1.1.0.1\chrome.exe" <span class="param">--user-data-dir</span>=<span class="value">"F:\UserCaches\cache33302"</span> <span class="param">--remote-debugging-port</span>=<span class="value">9992</span> <span class="param">--browser-rand-hash</span>=<span class="value">123</span> <span class="param">--browser-common-param</span>="<span class="pub">anguages</span>=<span class="value">zh-CN,en-US</span>&<span class="pub">platform</span>=<span class="value">Linux armv8l</span>&<span class="pub">disabledImage</span>=<span class="value">1</span>&<span class="pub">computerName</span>=<span class="value">LP-CCHS2020</span>&<span class="pub">macAddress</span>=<span class="value">2F:23:DA:7C:66:9A</span>&" <span class="param">--disabled-target-blank</span>
+	</p>
+
+	<h4>【浏览器操作自动化】</h4>
+	<p>
+		建议使用【填表模块】、【浏览器操作驱动】进行操作浏览器，易语言可以使用“猫头鹰填表模块”等模块，其他语言可以使用“puppeteer”、“selenium”等框架。
+	</p>
+  </footer>
+ </body>
+</html>

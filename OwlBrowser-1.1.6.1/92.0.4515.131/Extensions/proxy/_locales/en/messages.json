@@ -1,0 +1,14 @@
+{
+   "appDesc": {
+      "message": "Set proxy for Google Chrome browser"
+   },
+   "appName": {
+      "message": "Proxy Helper"
+   },
+   "proxy_helper_options": {
+      "message": "Proxy Helper Options"
+   },
+   "title": {
+      "message": "Proxy Helper"
+   }
+}

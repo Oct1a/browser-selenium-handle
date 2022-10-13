@@ -1,0 +1,33 @@
+{
+    "name": "owlplugin-owldata",
+    "version": "1.1",
+    "description": "owlplugin-owldata",
+    "manifest_version": 2,
+    "icons": {
+        "16": "images/ico-48.png",
+        "48": "images/ico-48.png",
+        "128": "images/ico-48.png"
+    },
+    "browser_action": {
+        "default_title": "owlplugin-owldata"
+    },
+    "permissions": ["webRequestBlocking", "webRequest", "contextMenus", "proxy", "browsingData", "storage", "*://*/*", "<all_urls>"],
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["js/contentscript.js"],
+        "run_at": "document_start",
+        "all_frames": true
+    }],
+	"key": "deheaapdhoalcighbjepkoepgliiklhf",
+    "sockets": {
+        "tcp": {
+            "connect": ["127.0.0.1"]
+        },
+        "tcpServer": {
+            "listen": ["127.0.0.1"]
+        }
+    }
+}
